@@ -56,7 +56,24 @@ https://niptado.vercel.app
 * MongoDB provides flexibility but lacks strict relational constraints.
 * Drag-and-drop functionality increases implementation complexity.
 
+
+
+## Environment Variables
+
+Create a `.env.local` file in the project root:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+
+* `MONGODB_URI` - MongoDB Atlas connection string.
+* `JWT_SECRET` - Secret key used for signing and verifying JWT tokens.
+
+```
+```
 ## Setup
+
 
 1. Install dependencies
 
