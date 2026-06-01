@@ -2,6 +2,10 @@
 
 Niptado is a modern task management application that helps users organize, prioritize, and track their work efficiently. With an intuitive Kanban board, drag-and-drop functionality, secure authentication, and responsive design, Niptado makes task management simple and productive across all devices.
 
+## Live Demo
+
+https://niptado.vercel.app
+
 ## Features
 
 * Secure JWT Authentication
@@ -13,23 +17,44 @@ Niptado is a modern task management application that helps users organize, prior
 * Dark and Light Mode
 * MongoDB-Powered Storage
 
-## Tech Stack:
+### Detailed Features
 
-* Frontend: Next.js, Tailwind CSS, Lucide React
-* Backend: Node.js, Express.js
-* Database: MongoDB
-* Authentication: JWT, bcryptjs
+* **JWT Cookie-Based Authentication**: Secure registration and login using `bcryptjs` with JWT stored in HTTP-only cookies.
+* **Edge-Compatible Middleware**: Route protection using Next.js middleware.
+* **Responsive Kanban Board**: Organize tasks across Todo, In Progress, and Done columns.
+* **Drag-and-Drop Support**: Built with `@dnd-kit/core` for smooth task movement.
+* **Optimistic UI Updates**: Instant feedback while syncing changes to the database.
+* **Real-Time Search & Filters**: Search tasks by title and description.
+* **Dark Mode Support**: Seamless dark and light theme switching.
 
+## Tech Stack
 
-## Features 
+* **Frontend:** Next.js, Tailwind CSS, Lucide React
+* **Backend:** Next.js API Routes
+* **Database:** MongoDB, Mongoose
+* **Authentication:** JWT, bcryptjs
 
-* **JWT Cookie-Based Authentication**: Secure registration and login using `bcryptjs` for password hashing, with JSON Web Tokens (JWT) stored in HTTP-Only cookies to protect against XSS.
-* **Edge-Compatible Middleware**: Pre-route authentication and page protection using Web Crypto APIs inside Next.js Edge middleware.
-* **Responsive Kanban Board**: Features three workspace columns (*Todo*, *In Progress*, *Done*). The board stacks cleanly on mobile viewports and adds a tab switcher for focused work.
-* **Intuitive Drag-and-Drop**: Built using `@dnd-kit/core` with drag-handle constraints to keep action buttons clickable.
-* **Optimistic UI Updates**: Task stages update instantly on the board, saving changes asynchronously to the MongoDB cluster.
-* **Real-time Search & Filters**: Instant full-text searching by title and description, as well as mobile stage categorization.
-* **Premium Dark Mode**: Seamless toggle support using Tailwind CSS v4 class-based variants with smooth transition animations.
+## Assumptions
+
+* Users can only access and manage their own tasks.
+* Authentication is required before accessing the dashboard.
+* Tasks belong to one of three statuses: Todo, In Progress, or Done.
+* MongoDB Atlas is used as the primary database.
+
+## Technical Decisions
+
+* Used **Next.js App Router** for modern routing and server-side capabilities.
+* Used **MongoDB with Mongoose** for flexible data modeling.
+* Implemented **JWT authentication with HTTP-only cookies** for improved security.
+* Chose **@dnd-kit** for performant and accessible drag-and-drop interactions.
+* Used **Tailwind CSS** for rapid and consistent UI development.
+
+## Tradeoffs
+
+* JWT authentication is stateless but requires token management.
+* Optimistic updates improve user experience but require rollback handling on failures.
+* MongoDB provides flexibility but lacks strict relational constraints.
+* Drag-and-drop functionality increases implementation complexity.
 
 ## Setup
 
@@ -46,7 +71,3 @@ npm run dev
 ```
 
 3. Open http://localhost:3000 in your browser.
-
-
-
-
